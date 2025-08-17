@@ -267,7 +267,7 @@ def main():
     cat_space = {
         "depth": randint(4, 10),
         "learning_rate": uniform(0.006, 0.12),
-        "l2_leaf_reg": uniform(1e-3, 10.0),
+        "l2_leaf_reg": uniform(1e-3, 2.0),
         "bagging_temperature": uniform(0.0, 1.0),
         "random_strength": uniform(0.0, 2.0),
         "iterations": randint(1000, 3000),
@@ -278,8 +278,8 @@ def main():
     best_overall = (None, np.inf, None)
 
     models = [
-        # ("LightGBM", lgbm_base, lgbm_space),
-        # ("XGBoost",  xgb_base,  xgb_space),
+        ("LightGBM", lgbm_base, lgbm_space),
+        ("XGBoost",  xgb_base,  xgb_space),
         ("CatBoost", cat_base,  cat_space),
     ]
 
